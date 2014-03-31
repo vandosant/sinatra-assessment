@@ -10,4 +10,14 @@ feature "managing products" do
 
     expect(page).to have_content "Welcome"
   end
+
+  scenario "user is able to add a product" do
+    visit '/'
+
+    click_link "Add a Product"
+    fill_in "new_product", with: "Laptop"
+    click_on "Create Product"
+
+    expect(page).to have_content "Laptop"
+  end
 end
